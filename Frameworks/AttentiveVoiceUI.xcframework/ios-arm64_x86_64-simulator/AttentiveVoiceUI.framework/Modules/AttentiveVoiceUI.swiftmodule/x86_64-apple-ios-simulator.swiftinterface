@@ -1,0 +1,44 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.3.3 effective-5.10 (swiftlang-6.3.3.1.3 clang-2100.1.1.101)
+// swift-module-flags: -target x86_64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-experimental-feature DebugDescriptionMacro -module-name AttentiveVoiceUI -package-name ui_source
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.3
+import AttentiveVoice
+import Combine
+import DeveloperToolsSupport
+import Foundation
+import Foundation/*.Bundle*/
+import Foundation/*.ProcessInfo*/
+import Foundation/*.URL*/
+import Swift
+import SwiftUI
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@available(iOS 17, *)
+@_Concurrency.MainActor public struct AttentiveCallerView : SwiftUICore.View {
+  @_Concurrency.MainActor public init(call: AttentiveVoice.AttentiveCall, request: SwiftUICore.Binding<AttentiveVoice.CallRequest>, configuration: AttentiveVoiceUI.CallerUIConfiguration = .init(), enrollment: AttentiveVoice.VoiceEnrollment? = nil, microphoneOnStart: Swift.Bool = true, onSettings: (() -> Swift.Void)? = nil)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  @available(iOS 17, *)
+  public typealias Body = @_opaqueReturnTypeOf("$s16AttentiveVoiceUI0A10CallerViewV4bodyQrvp", 0) __
+}
+@available(iOS 17, *)
+public struct CallerUIConfiguration {
+  public var title: Swift.String
+  public var agentName: Swift.String
+  public var profileTitle: Swift.String
+  public var customerIDLabel: Swift.String
+  public var activityTitle: Swift.String
+  public var emptyActivityText: Swift.String
+  public var showsProfile: Swift.Bool
+  public var showsToolWaitSelection: Swift.Bool
+  public var toolDisplayNames: [Swift.String : Swift.String]
+  public var accentColor: SwiftUICore.Color
+  public var avatar: SwiftUICore.Image?
+  public var endsCallOnDisappear: Swift.Bool
+  public init(title: Swift.String = "Talk to your agent", agentName: Swift.String = "Agent", profileTitle: Swift.String = "My account", customerIDLabel: Swift.String = "Customer ID", activityTitle: Swift.String = "Activity", emptyActivityText: Swift.String = "No activity yet", showsProfile: Swift.Bool = false, showsToolWaitSelection: Swift.Bool = true, toolDisplayNames: [Swift.String : Swift.String] = [:], accentColor: SwiftUICore.Color = Color(red: 132.0 / 255, green: 39.0 / 255, blue: 35.0 / 255), avatar: SwiftUICore.Image? = nil, endsCallOnDisappear: Swift.Bool = true)
+}
+@available(iOS 17, *)
+extension AttentiveVoiceUI.AttentiveCallerView : Swift.Sendable {}
