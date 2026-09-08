@@ -52,20 +52,20 @@ Create the call and request on the main actor in your host model:
 
 ```swift
 let call = try AttentiveCall(
-    endpoint: URL(string: "https://your-service.example.com/api/public-agent/connection-details")!
+    endpoint: URL(string: "https://attentive.odion.ai/api/public-agent/connection-details")!
 )
 let request = CallRequest(
-    businessSlug: "your-business",
-    agentPublicId: "agt_your_agent",
+    businessSlug: "wema-bank-poc-local",
+    agentPublicId: "agt_73099afb71",
     endUserContact: "caller@example.com"
 )
 ```
 
-These are placeholder identifiers; obtain real values and the service endpoint
-from your deployment. Add `NSMicrophoneUsageDescription` to the host's Info.plist.
+This is the live dashboard bootstrap and the Huawei test agent. Use a different
+business slug and public agent ID when the host app should call another agent. Add `NSMicrophoneUsageDescription` to the host's Info.plist.
 Do not embed a provider key, LiveKit API secret or a long-lived privileged token.
 The current POC bootstrap still needs the hardening described in the
-[API contract](README.md#staging-backend) before external production use.
+[API contract](README.md#call-endpoint) before external production use.
 
 The view does not start a call on appearance. Its Start Call button uses the
 latest bound request. It defaults to enabling the microphone, while

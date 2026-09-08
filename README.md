@@ -52,21 +52,29 @@ slug, public agent ID and caller context from the deployment owner. The SDK
 contains no deployment URL, customer identity, voiceprint or provider key.
 Do not copy account details from someone else's test app.
 
-## Staging Backend
+## Call endpoint
 
-Publishing this library does not deploy the backend. The existing local service
-must be running, including its realtime service and worker.
+The SDK talks only to the dashboard bootstrap. Do not put Huawei API ports
+(`:8090`–`:8095`), the LiveKit WSS URL, or the jump `X-API-Key` into
+`AttentiveCall`. The dashboard returns the realtime URL after it creates the
+room.
 
-- Simulator on the server Mac: the current bootstrap path is
-  `http://localhost:3000/api/public-agent/connection-details`.
-- Physical iPhone: use the Mac's reachable LAN address, not `localhost`.
-  Both the HTTP endpoint and returned realtime address must be reachable.
-- Optional enrollment uses `/api/public-agent/voice-enroll`. The current POC
-  identifies the reference voiceprint using the same normalized email as calls.
-- HTTP/WS staging requires explicitly opting into
-  `allowsInsecureDevelopmentConnections` when constructing the call/provider.
-  A host app may also need development-only local-network/ATS settings. Do not
-  enable arbitrary insecure connections in a production app.
+| Use | URL |
+| --- | --- |
+| Call endpoint | `https://attentive.odion.ai/api/public-agent/connection-details` |
+| Enrollment | omit (`nil`) unless the deployment exposes `/api/public-agent/voice-enroll` |
+
+Huawei test agent currently on that backend:
+
+| Field | Value |
+| --- | --- |
+| `businessSlug` | `wema-bank-poc-local` |
+| `agentPublicId` | `agt_73099afb71` |
+
+Local `http://localhost:3000/api/public-agent/connection-details` is only for a
+dashboard running on the same Mac. A physical iPhone cannot use `localhost`.
+Do not opt into `allowsInsecureDevelopmentConnections` against
+`attentive.odion.ai`.
 
 The public POC bootstrap is not a production banking authorization boundary.
 Profile fields do not authenticate a caller. Preserve server-side voice checks

@@ -12,8 +12,12 @@ Integrate the Attentive voice caller into this iOS app.
 First read the SDK's GETTING_STARTED.md, README.md, CALLER_UI.md and INTEGRATION_AGENT.md, inspect
 Package.swift and its public Swift interfaces, and inspect this app's architecture.
 Use the verified package URL/version or local preview directory supplied by
-Attentive. Ask me for the deployment endpoint, business slug, public agent ID
-and trusted caller context if these are not already supplied by the app.
+Attentive. The current call endpoint is
+`https://attentive.odion.ai/api/public-agent/connection-details`. The Huawei
+test agent is business slug `wema-bank-poc-local` and public agent ID
+`agt_73099afb71`. Ask me for a different identity if this app should not use
+that test agent. Do not put `:8090`–`:8095`, LiveKit WSS, or an API key into
+`AttentiveCall`.
 Do not clone the entire backend repository, rebuild a binary SDK, or copy vendor
 source into the host app. Keep the package version pinned during integration.
 
@@ -66,7 +70,7 @@ the exact changed files, test results and any deployment/release blockers.
   `configuration`, optional `enrollment`, `microphoneOnStart` and `onSettings`.
 - `CallerUIConfiguration`: presentation only; no provider or server controls.
 
-The source of truth for HTTP is [call-api.md](README.md#staging-backend).
+The source of truth for HTTP is [call-api.md](README.md#call-endpoint).
 The UI reference is [CALLER_UI.md](CALLER_UI.md). The quickstart shows package
 consumption. Use only the verified package URL/version or preview folder supplied
 for this integration.

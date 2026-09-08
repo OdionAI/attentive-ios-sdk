@@ -46,18 +46,18 @@ API. A gateway and gRPC are separate [roadmap](README.md#roadmap) work.
 
 | Configuration | Source and meaning |
 | --- | --- |
-| Call endpoint | Reachable HTTPS `/api/public-agent/connection-details` URL |
-| Enrollment endpoint | Optional HTTPS `/api/public-agent/voice-enroll` URL, when using built-in enrollment |
-| Business slug and public agent ID | The existing agent configured in the dashboard |
+| Call endpoint | `https://attentive.odion.ai/api/public-agent/connection-details` |
+| Enrollment endpoint | Optional; pass `nil` unless `/api/public-agent/voice-enroll` is enabled |
+| Business slug and public agent ID | Huawei test agent: `wema-bank-poc-local` / `agt_73099afb71` |
 | Caller contact | The caller's identity; for current voice enrollment use the same normalized email for enrollment and calls |
 | Customer ID, account and phone | Optional bank context from your trusted app session; not proof of identity |
 
 The existing bootstrap is a POC contract, not yet a production-authenticated
-customer API. See the [security boundary](README.md#staging-backend).
-Never embed model keys, transport server secrets or long-lived service tokens.
-Do not enable insecure connections or copy the sample's LAN forwarding policy
-into a released app. A real phone must be able to reach both the API and realtime
-media service; `localhost` refers to the phone itself.
+customer API. See the [call endpoint](README.md#call-endpoint).
+Never embed model keys, transport server secrets, the jump API key, or
+long-lived service tokens. Do not enable insecure connections in a released
+app. A real phone reaches `https://attentive.odion.ai`; `localhost` is only
+valid for a dashboard on the same Mac.
 
 ## 2. Retain One Session
 
@@ -206,11 +206,11 @@ import SwiftUI
 @MainActor
 func customerSupportEntry(email: String, profile: CallerProfile?) -> CustomerSupportButton {
     CustomerSupportButton(
-        callEndpoint: URL(string: "https://your-service.example.com/api/public-agent/connection-details")!,
-        enrollmentEndpoint: URL(string: "https://your-service.example.com/api/public-agent/voice-enroll")!,
+        callEndpoint: URL(string: "https://attentive.odion.ai/api/public-agent/connection-details")!,
+        enrollmentEndpoint: nil,
         initialRequest: CallRequest(
-            businessSlug: "YOUR_BUSINESS_SLUG",
-            agentPublicId: "YOUR_AGENT_PUBLIC_ID",
+            businessSlug: "wema-bank-poc-local",
+            agentPublicId: "agt_73099afb71",
             endUserContact: email.trimmingCharacters(in: .whitespacesAndNewlines).lowercased(),
             profile: profile,
             toolWaitSpeechMode: .toolSpecific
@@ -355,5 +355,5 @@ as part of release verification. That compilation does not replace live-call
 acceptance in your app.
 
 Next: [SDK distribution process](README.md#installation),
-[full UI reference](CALLER_UI.md), [API contract](README.md#staging-backend),
+[full UI reference](CALLER_UI.md), [API contract](README.md#call-endpoint),
 and [copyable coding-agent instructions](INTEGRATION_AGENT.md).
