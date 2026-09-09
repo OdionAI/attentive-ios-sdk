@@ -128,6 +128,7 @@ public protocol CallCredentialProvider : Swift.Sendable {
 public enum CallError : Swift.Error, Foundation.LocalizedError, Swift.Equatable, Swift.Sendable {
   case invalidRequest, insecureURL, invalidResponse, alreadyActive, notConnected
   case microphoneDenied, connectionFailed, agentUnavailable, messageFailed
+  case insufficientCredits(balanceKobo: Swift.Int?, requiredMinimumKobo: Swift.Int?)
   case httpStatus(Swift.Int)
   public var errorDescription: Swift.String? {
     get
