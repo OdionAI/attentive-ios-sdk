@@ -1,0 +1,339 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.3.3 effective-5.10 (swiftlang-6.3.3.1.3 clang-2100.1.1.101)
+// swift-module-flags: -target arm64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-experimental-feature DebugDescriptionMacro -module-name AttentiveVoice -package-name source
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.3
+import AVFoundation
+import Combine
+import Foundation
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_hasMissingDesignatedInitializers @_Concurrency.MainActor final public class AgentAudioLevel : Combine.ObservableObject {
+  @Combine.Published<Swift.Float> @_projectedValueProperty($energy) @_Concurrency.MainActor final public var energy: Swift.Float {
+    get
+  }
+  @_Concurrency.MainActor final public var $energy: Combine.Published<Swift.Float>.Publisher {
+    get
+  }
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @_Concurrency.MainActor final public class AttentiveCall : Combine.ObservableObject {
+  @Combine.Published<AttentiveVoice.CallState> @_projectedValueProperty($state) @_Concurrency.MainActor final public var state: AttentiveVoice.CallState {
+    get
+  }
+  @_Concurrency.MainActor final public var $state: Combine.Published<AttentiveVoice.CallState>.Publisher {
+    get
+  }
+  @Combine.Published<AttentiveVoice.AgentState> @_projectedValueProperty($agentState) @_Concurrency.MainActor final public var agentState: AttentiveVoice.AgentState {
+    get
+  }
+  @_Concurrency.MainActor final public var $agentState: Combine.Published<AttentiveVoice.AgentState>.Publisher {
+    get
+  }
+  @Combine.Published<Swift.Bool> @_projectedValueProperty($microphoneEnabled) @_Concurrency.MainActor final public var microphoneEnabled: Swift.Bool {
+    get
+  }
+  @_Concurrency.MainActor final public var $microphoneEnabled: Combine.Published<Swift.Bool>.Publisher {
+    get
+  }
+  @Combine.Published<AttentiveVoice.AuthenticationStatus.Status> @_projectedValueProperty($sessionAuthentication) @_Concurrency.MainActor final public var sessionAuthentication: AttentiveVoice.AuthenticationStatus.Status {
+    get
+  }
+  @_Concurrency.MainActor final public var $sessionAuthentication: Combine.Published<AttentiveVoice.AuthenticationStatus.Status>.Publisher {
+    get
+  }
+  @Combine.Published<AttentiveVoice.AuthenticationStatus.Status> @_projectedValueProperty($actionAuthentication) @_Concurrency.MainActor final public var actionAuthentication: AttentiveVoice.AuthenticationStatus.Status {
+    get
+  }
+  @_Concurrency.MainActor final public var $actionAuthentication: Combine.Published<AttentiveVoice.AuthenticationStatus.Status>.Publisher {
+    get
+  }
+  @Combine.Published<[AttentiveVoice.Transcript]> @_projectedValueProperty($transcripts) @_Concurrency.MainActor final public var transcripts: [AttentiveVoice.Transcript] {
+    get
+  }
+  @_Concurrency.MainActor final public var $transcripts: Combine.Published<[AttentiveVoice.Transcript]>.Publisher {
+    get
+  }
+  @Combine.Published<[AttentiveVoice.ToolActivity]> @_projectedValueProperty($toolActivity) @_Concurrency.MainActor final public var toolActivity: [AttentiveVoice.ToolActivity] {
+    get
+  }
+  @_Concurrency.MainActor final public var $toolActivity: Combine.Published<[AttentiveVoice.ToolActivity]>.Publisher {
+    get
+  }
+  @Combine.Published<AttentiveVoice.CallError?> @_projectedValueProperty($lastError) @_Concurrency.MainActor final public var lastError: AttentiveVoice.CallError? {
+    get
+  }
+  @_Concurrency.MainActor final public var $lastError: Combine.Published<AttentiveVoice.CallError?>.Publisher {
+    get
+  }
+  @Combine.Published<AttentiveVoice.AgentConfiguration?> @_projectedValueProperty($configuration) @_Concurrency.MainActor final public var configuration: AttentiveVoice.AgentConfiguration? {
+    get
+  }
+  @_Concurrency.MainActor final public var $configuration: Combine.Published<AttentiveVoice.AgentConfiguration?>.Publisher {
+    get
+  }
+  @_Concurrency.MainActor final public let agentAudioLevel: AttentiveVoice.AgentAudioLevel
+  @_Concurrency.MainActor final public var onEvent: ((AttentiveVoice.CallEvent) -> Swift.Void)?
+  @_Concurrency.MainActor convenience public init(apiKey: Swift.String, agentID: Swift.String)
+  @_Concurrency.MainActor convenience public init(apiKey: Swift.String, agentID: Swift.String, customerID: Swift.String?)
+  @_Concurrency.MainActor final public func loadConfiguration() async throws
+  @_Concurrency.MainActor final public func start(callerToken: Swift.String? = nil, microphoneEnabled: Swift.Bool = true) async throws
+  @_Concurrency.MainActor convenience public init(endpoint: Foundation.URL, allowsInsecureDevelopmentConnections: Swift.Bool = false) throws
+  @_Concurrency.MainActor convenience public init(credentialProvider: any AttentiveVoice.CallCredentialProvider, allowsInsecureDevelopmentConnections: Swift.Bool = false)
+  @_Concurrency.MainActor final public func start(_ request: AttentiveVoice.CallRequest, microphoneEnabled: Swift.Bool = true) async throws
+  @_Concurrency.MainActor final public func end() async
+  @_Concurrency.MainActor final public func setMicrophone(enabled: Swift.Bool) async throws
+  @_Concurrency.MainActor final public func sendText(_ text: Swift.String) async throws
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+public struct CallerProfile : Swift.Codable, Swift.Equatable, Swift.Sendable {
+  public var customerId: Swift.String
+  public var accountNumber: Swift.String?
+  public var phoneNumber: Swift.String?
+  public init(customerId: Swift.String, accountNumber: Swift.String? = nil, phoneNumber: Swift.String? = nil)
+  public static func == (a: AttentiveVoice.CallerProfile, b: AttentiveVoice.CallerProfile) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum ToolWaitSpeechMode : Swift.String, Swift.Codable, Swift.Sendable {
+  case toolSpecific
+  case llmGenerated
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct CallRequest : Swift.Codable, Swift.Equatable, Swift.Sendable {
+  public var businessSlug: Swift.String
+  public var agentPublicId: Swift.String
+  public var endUserContact: Swift.String
+  public var language: Swift.String
+  public var wemaContext: AttentiveVoice.CallerProfile?
+  public var toolWaitSpeechMode: AttentiveVoice.ToolWaitSpeechMode?
+  public init(businessSlug: Swift.String, agentPublicId: Swift.String, endUserContact: Swift.String, language: Swift.String = "en", profile: AttentiveVoice.CallerProfile? = nil, toolWaitSpeechMode: AttentiveVoice.ToolWaitSpeechMode? = nil)
+  public static func == (a: AttentiveVoice.CallRequest, b: AttentiveVoice.CallRequest) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct CallCredentials : Swift.Decodable, Swift.Sendable, Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+  public let serverUrl: Foundation.URL
+  public let roomName: Swift.String
+  public let participantToken: Swift.String
+  public init(serverUrl: Foundation.URL, roomName: Swift.String, participantToken: Swift.String)
+  public var description: Swift.String {
+    get
+  }
+  public var debugDescription: Swift.String {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public protocol CallCredentialProvider : Swift.Sendable {
+  func fetch(for request: AttentiveVoice.CallRequest) async throws -> AttentiveVoice.CallCredentials
+}
+public enum CallError : Swift.Error, Foundation.LocalizedError, Swift.Equatable, Swift.Sendable {
+  case invalidAPIKey, agentNotAllowed, callerRequired, callerSessionExpired, callLimitReached, serviceUnavailable
+  case customerMismatch
+  case invalidRequest, insecureURL, invalidResponse, alreadyActive, notConnected
+  case microphoneDenied, connectionFailed, agentUnavailable, messageFailed
+  case insufficientCredits(balanceKobo: Swift.Int?, requiredMinimumKobo: Swift.Int?)
+  case httpStatus(Swift.Int)
+  public var errorDescription: Swift.String? {
+    get
+  }
+  public static func == (a: AttentiveVoice.CallError, b: AttentiveVoice.CallError) -> Swift.Bool
+}
+public struct HTTPCallCredentialProvider : AttentiveVoice.CallCredentialProvider {
+  public init(endpoint: Foundation.URL, allowsInsecureDevelopmentConnections: Swift.Bool = false, session: Foundation.URLSession? = nil) throws
+  public func fetch(for request: AttentiveVoice.CallRequest) async throws -> AttentiveVoice.CallCredentials
+}
+public enum CallState : Swift.String, Swift.Sendable {
+  case idle, connecting, connected, reconnecting, ending, ended, failed
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum AgentState : Swift.String, Swift.Sendable {
+  case waiting, initializing, listening, thinking, speaking, disconnected
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct Transcript : Swift.Identifiable, Swift.Equatable, Swift.Sendable {
+  public enum Speaker : Swift.String, Swift.Sendable {
+    case caller, agent
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public let id: Swift.String
+  public let speaker: AttentiveVoice.Transcript.Speaker
+  public let text: Swift.String
+  public let isFinal: Swift.Bool
+  public static func == (a: AttentiveVoice.Transcript, b: AttentiveVoice.Transcript) -> Swift.Bool
+  public typealias ID = Swift.String
+}
+public enum JSONValue : Swift.Codable, Swift.Equatable, Swift.Sendable {
+  case object([Swift.String : AttentiveVoice.JSONValue]), array([AttentiveVoice.JSONValue]), string(Swift.String), number(Swift.Double), bool(Swift.Bool), null
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public var stringValue: Swift.String? {
+    get
+  }
+  public static func == (a: AttentiveVoice.JSONValue, b: AttentiveVoice.JSONValue) -> Swift.Bool
+}
+public struct ToolActivity : Swift.Identifiable, Swift.Equatable, Swift.Sendable {
+  public let id: Swift.String
+  public let toolName: Swift.String
+  public let event: Swift.String
+  public let status: Swift.String
+  public let payload: [Swift.String : AttentiveVoice.JSONValue]
+  public static func == (a: AttentiveVoice.ToolActivity, b: AttentiveVoice.ToolActivity) -> Swift.Bool
+  public typealias ID = Swift.String
+}
+public struct AuthenticationStatus : Swift.Equatable, Swift.Sendable {
+  public enum Scope : Swift.Sendable {
+    case session, action
+    public static func == (a: AttentiveVoice.AuthenticationStatus.Scope, b: AttentiveVoice.AuthenticationStatus.Scope) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum Status : Swift.String, Swift.Sendable {
+    case pending, verified, failed
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public let scope: AttentiveVoice.AuthenticationStatus.Scope
+  public let status: AttentiveVoice.AuthenticationStatus.Status
+  public static func == (a: AttentiveVoice.AuthenticationStatus, b: AttentiveVoice.AuthenticationStatus) -> Swift.Bool
+}
+public enum CallEvent : Swift.Equatable, Swift.Sendable {
+  case stateChanged(AttentiveVoice.CallState)
+  case agentStateChanged(AttentiveVoice.AgentState)
+  case microphoneChanged(Swift.Bool)
+  case transcript(AttentiveVoice.Transcript)
+  case toolActivity(AttentiveVoice.ToolActivity)
+  case authentication(AttentiveVoice.AuthenticationStatus)
+  case actionOutcome([Swift.String : AttentiveVoice.JSONValue])
+  case metrics([Swift.String : AttentiveVoice.JSONValue])
+  case agentAudioReceived
+  case agentAudioEnergy(Swift.Float)
+  case failure(AttentiveVoice.CallError)
+  public static func == (a: AttentiveVoice.CallEvent, b: AttentiveVoice.CallEvent) -> Swift.Bool
+}
+@_Concurrency.MainActor final public class IOSVoiceEnrollmentRecorder : AttentiveVoice.VoiceEnrollmentRecording {
+  @_Concurrency.MainActor public init()
+  @_Concurrency.MainActor final public func record(progress: @escaping @_Concurrency.MainActor (Swift.Int) -> Swift.Void) async throws -> Foundation.Data
+  @_Concurrency.MainActor final public func cancel()
+  @objc deinit
+}
+public struct AgentConfiguration : Swift.Decodable, Swift.Equatable, Swift.Sendable {
+  public let agentId: Swift.String
+  public let agentName: Swift.String
+  public let title: Swift.String
+  public let callerRequired: Swift.Bool
+  public static func == (a: AttentiveVoice.AgentConfiguration, b: AttentiveVoice.AgentConfiguration) -> Swift.Bool
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum VoiceEnrollmentError : Swift.Error, Foundation.LocalizedError, Swift.Equatable {
+  case invalidEmail, invalidAudio, invalidResponse, recordingFailed, microphoneDenied, serviceUnavailable
+  case httpStatus(Swift.Int)
+  public var errorDescription: Swift.String? {
+    get
+  }
+  public static func == (a: AttentiveVoice.VoiceEnrollmentError, b: AttentiveVoice.VoiceEnrollmentError) -> Swift.Bool
+}
+public protocol VoiceEnrollmentProvider : Swift.Sendable {
+  func isEnrolled(email: Swift.String) async throws -> Swift.Bool
+  func enroll(email: Swift.String, wav: Foundation.Data) async throws
+}
+public struct HTTPVoiceEnrollmentProvider : AttentiveVoice.VoiceEnrollmentProvider {
+  public init(endpoint: Foundation.URL, allowsInsecureDevelopmentConnections: Swift.Bool = false, session: Foundation.URLSession? = nil) throws
+  public func isEnrolled(email: Swift.String) async throws -> Swift.Bool
+  public func enroll(email: Swift.String, wav: Foundation.Data) async throws
+}
+@_Concurrency.MainActor public protocol VoiceEnrollmentRecording : AnyObject {
+  @_Concurrency.MainActor func record(progress: @escaping @_Concurrency.MainActor (Swift.Int) -> Swift.Void) async throws -> Foundation.Data
+  @_Concurrency.MainActor func cancel()
+}
+@_Concurrency.MainActor final public class VoiceEnrollment : Combine.ObservableObject {
+  public enum Stage {
+    case idle, checking, recording, saving, failed
+    public static func == (a: AttentiveVoice.VoiceEnrollment.Stage, b: AttentiveVoice.VoiceEnrollment.Stage) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  @Combine.Published<AttentiveVoice.VoiceEnrollment.Stage> @_projectedValueProperty($stage) @_Concurrency.MainActor final public var stage: AttentiveVoice.VoiceEnrollment.Stage {
+    get
+  }
+  @_Concurrency.MainActor final public var $stage: Combine.Published<AttentiveVoice.VoiceEnrollment.Stage>.Publisher {
+    get
+  }
+  @Combine.Published<Swift.Bool> @_projectedValueProperty($isEnrolled) @_Concurrency.MainActor final public var isEnrolled: Swift.Bool {
+    get
+  }
+  @_Concurrency.MainActor final public var $isEnrolled: Combine.Published<Swift.Bool>.Publisher {
+    get
+  }
+  @Combine.Published<Swift.Int> @_projectedValueProperty($remainingSeconds) @_Concurrency.MainActor final public var remainingSeconds: Swift.Int {
+    get
+  }
+  @_Concurrency.MainActor final public var $remainingSeconds: Combine.Published<Swift.Int>.Publisher {
+    get
+  }
+  @Combine.Published<AttentiveVoice.VoiceEnrollmentError?> @_projectedValueProperty($lastError) @_Concurrency.MainActor final public var lastError: AttentiveVoice.VoiceEnrollmentError? {
+    get
+  }
+  @_Concurrency.MainActor final public var $lastError: Combine.Published<AttentiveVoice.VoiceEnrollmentError?>.Publisher {
+    get
+  }
+  @_Concurrency.MainActor final public var isBusy: Swift.Bool {
+    get
+  }
+  @_Concurrency.MainActor public init(provider: any AttentiveVoice.VoiceEnrollmentProvider, recorder: any AttentiveVoice.VoiceEnrollmentRecording)
+  @_Concurrency.MainActor final public func refresh(email value: Swift.String) async
+  @_Concurrency.MainActor final public func record(email value: Swift.String) async
+  @_Concurrency.MainActor final public func cancel()
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+extension AttentiveVoice.AgentAudioLevel : Swift.Sendable {}
+extension AttentiveVoice.AttentiveCall : Swift.Sendable {}
+extension AttentiveVoice.ToolWaitSpeechMode : Swift.Equatable {}
+extension AttentiveVoice.ToolWaitSpeechMode : Swift.Hashable {}
+extension AttentiveVoice.ToolWaitSpeechMode : Swift.RawRepresentable {}
+extension AttentiveVoice.CallState : Swift.Equatable {}
+extension AttentiveVoice.CallState : Swift.Hashable {}
+extension AttentiveVoice.CallState : Swift.RawRepresentable {}
+extension AttentiveVoice.AgentState : Swift.Equatable {}
+extension AttentiveVoice.AgentState : Swift.Hashable {}
+extension AttentiveVoice.AgentState : Swift.RawRepresentable {}
+extension AttentiveVoice.Transcript.Speaker : Swift.Equatable {}
+extension AttentiveVoice.Transcript.Speaker : Swift.Hashable {}
+extension AttentiveVoice.Transcript.Speaker : Swift.RawRepresentable {}
+extension AttentiveVoice.AuthenticationStatus.Scope : Swift.Equatable {}
+extension AttentiveVoice.AuthenticationStatus.Scope : Swift.Hashable {}
+extension AttentiveVoice.AuthenticationStatus.Status : Swift.Equatable {}
+extension AttentiveVoice.AuthenticationStatus.Status : Swift.Hashable {}
+extension AttentiveVoice.AuthenticationStatus.Status : Swift.RawRepresentable {}
+extension AttentiveVoice.IOSVoiceEnrollmentRecorder : Swift.Sendable {}
+extension AttentiveVoice.VoiceEnrollment : Swift.Sendable {}
+extension AttentiveVoice.VoiceEnrollment.Stage : Swift.Equatable {}
+extension AttentiveVoice.VoiceEnrollment.Stage : Swift.Hashable {}

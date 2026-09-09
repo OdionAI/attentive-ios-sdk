@@ -1,0 +1,1 @@
+Attentive packaging modifications: LiveKitWebRTC is distributed as AttentiveMedia; RustLiveKitUniFFI is distributed as AttentiveBindings. Framework names, bundle identifiers, dynamic-loader paths and signing were updated; private headers and unused platform slices were omitted. The upstream executable implementation and exported ABI are unchanged.
