@@ -77,6 +77,7 @@ import _SwiftConcurrencyShims
   @_Concurrency.MainActor final public let agentAudioLevel: AttentiveVoice.AgentAudioLevel
   @_Concurrency.MainActor final public var onEvent: ((AttentiveVoice.CallEvent) -> Swift.Void)?
   @_Concurrency.MainActor convenience public init(apiKey: Swift.String, agentID: Swift.String)
+  @_Concurrency.MainActor convenience public init(apiKey: Swift.String, agentID: Swift.String, customerID: Swift.String?)
   @_Concurrency.MainActor final public func loadConfiguration() async throws
   @_Concurrency.MainActor final public func start(callerToken: Swift.String? = nil, microphoneEnabled: Swift.Bool = true) async throws
   @_Concurrency.MainActor convenience public init(endpoint: Foundation.URL, allowsInsecureDevelopmentConnections: Swift.Bool = false) throws
@@ -136,6 +137,7 @@ public protocol CallCredentialProvider : Swift.Sendable {
 }
 public enum CallError : Swift.Error, Foundation.LocalizedError, Swift.Equatable, Swift.Sendable {
   case invalidAPIKey, agentNotAllowed, callerRequired, callerSessionExpired, callLimitReached, serviceUnavailable
+  case customerMismatch
   case invalidRequest, insecureURL, invalidResponse, alreadyActive, notConnected
   case microphoneDenied, connectionFailed, agentUnavailable, messageFailed
   case insufficientCredits(balanceKobo: Swift.Int?, requiredMinimumKobo: Swift.Int?)

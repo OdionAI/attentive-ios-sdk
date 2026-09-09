@@ -18,6 +18,7 @@ import _SwiftConcurrencyShims
 @available(iOS 17, *)
 @_Concurrency.MainActor public struct AttentiveAgentView : SwiftUICore.View {
   @_Concurrency.MainActor public init(apiKey: Swift.String, agentID: Swift.String, callerToken: (() async throws -> Swift.String)? = nil)
+  @_Concurrency.MainActor public init(apiKey: Swift.String, agentID: Swift.String, customerID: Swift.String?, callerToken: (() async throws -> Swift.String)? = nil)
   @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
     get
   }
@@ -43,6 +44,8 @@ public struct CallerUIConfiguration {
   public var emptyActivityText: Swift.String
   public var showsProfile: Swift.Bool
   public var showsToolWaitSelection: Swift.Bool
+  public var showsAccountMenu: Swift.Bool
+  public var showsCallOptions: Swift.Bool
   public var toolDisplayNames: [Swift.String : Swift.String]
   public var accentColor: SwiftUICore.Color
   public var avatar: SwiftUICore.Image?
