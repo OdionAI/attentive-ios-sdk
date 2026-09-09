@@ -68,8 +68,17 @@ import _SwiftConcurrencyShims
   @_Concurrency.MainActor final public var $lastError: Combine.Published<AttentiveVoice.CallError?>.Publisher {
     get
   }
+  @Combine.Published<AttentiveVoice.AgentConfiguration?> @_projectedValueProperty($configuration) @_Concurrency.MainActor final public var configuration: AttentiveVoice.AgentConfiguration? {
+    get
+  }
+  @_Concurrency.MainActor final public var $configuration: Combine.Published<AttentiveVoice.AgentConfiguration?>.Publisher {
+    get
+  }
   @_Concurrency.MainActor final public let agentAudioLevel: AttentiveVoice.AgentAudioLevel
   @_Concurrency.MainActor final public var onEvent: ((AttentiveVoice.CallEvent) -> Swift.Void)?
+  @_Concurrency.MainActor convenience public init(apiKey: Swift.String, agentID: Swift.String)
+  @_Concurrency.MainActor final public func loadConfiguration() async throws
+  @_Concurrency.MainActor final public func start(callerToken: Swift.String? = nil, microphoneEnabled: Swift.Bool = true) async throws
   @_Concurrency.MainActor convenience public init(endpoint: Foundation.URL, allowsInsecureDevelopmentConnections: Swift.Bool = false) throws
   @_Concurrency.MainActor convenience public init(credentialProvider: any AttentiveVoice.CallCredentialProvider, allowsInsecureDevelopmentConnections: Swift.Bool = false)
   @_Concurrency.MainActor final public func start(_ request: AttentiveVoice.CallRequest, microphoneEnabled: Swift.Bool = true) async throws
@@ -126,6 +135,7 @@ public protocol CallCredentialProvider : Swift.Sendable {
   func fetch(for request: AttentiveVoice.CallRequest) async throws -> AttentiveVoice.CallCredentials
 }
 public enum CallError : Swift.Error, Foundation.LocalizedError, Swift.Equatable, Swift.Sendable {
+  case invalidAPIKey, agentNotAllowed, callerRequired, callerSessionExpired, callLimitReached, serviceUnavailable
   case invalidRequest, insecureURL, invalidResponse, alreadyActive, notConnected
   case microphoneDenied, connectionFailed, agentUnavailable, messageFailed
   case insufficientCredits(balanceKobo: Swift.Int?, requiredMinimumKobo: Swift.Int?)
@@ -229,6 +239,14 @@ public enum CallEvent : Swift.Equatable, Swift.Sendable {
   @_Concurrency.MainActor final public func record(progress: @escaping @_Concurrency.MainActor (Swift.Int) -> Swift.Void) async throws -> Foundation.Data
   @_Concurrency.MainActor final public func cancel()
   @objc deinit
+}
+public struct AgentConfiguration : Swift.Decodable, Swift.Equatable, Swift.Sendable {
+  public let agentId: Swift.String
+  public let agentName: Swift.String
+  public let title: Swift.String
+  public let callerRequired: Swift.Bool
+  public static func == (a: AttentiveVoice.AgentConfiguration, b: AttentiveVoice.AgentConfiguration) -> Swift.Bool
+  public init(from decoder: any Swift.Decoder) throws
 }
 public enum VoiceEnrollmentError : Swift.Error, Foundation.LocalizedError, Swift.Equatable {
   case invalidEmail, invalidAudio, invalidResponse, recordingFailed, microphoneDenied, serviceUnavailable

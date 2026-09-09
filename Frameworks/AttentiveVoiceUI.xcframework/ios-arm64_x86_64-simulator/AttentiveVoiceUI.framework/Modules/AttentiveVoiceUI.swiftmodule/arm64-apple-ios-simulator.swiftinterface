@@ -16,6 +16,15 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 @available(iOS 17, *)
+@_Concurrency.MainActor public struct AttentiveAgentView : SwiftUICore.View {
+  @_Concurrency.MainActor public init(apiKey: Swift.String, agentID: Swift.String, callerToken: (() async throws -> Swift.String)? = nil)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  @available(iOS 17, *)
+  public typealias Body = @_opaqueReturnTypeOf("$s16AttentiveVoiceUI0A9AgentViewV4bodyQrvp", 0) __
+}
+@available(iOS 17, *)
 @_Concurrency.MainActor public struct AttentiveCallerView : SwiftUICore.View {
   @_Concurrency.MainActor public init(call: AttentiveVoice.AttentiveCall, request: SwiftUICore.Binding<AttentiveVoice.CallRequest>, configuration: AttentiveVoiceUI.CallerUIConfiguration = .init(), enrollment: AttentiveVoice.VoiceEnrollment? = nil, microphoneOnStart: Swift.Bool = true, onSettings: (() -> Swift.Void)? = nil)
   @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
@@ -40,5 +49,7 @@ public struct CallerUIConfiguration {
   public var endsCallOnDisappear: Swift.Bool
   public init(title: Swift.String = "Talk to your agent", agentName: Swift.String = "Agent", profileTitle: Swift.String = "My account", customerIDLabel: Swift.String = "Customer ID", activityTitle: Swift.String = "Activity", emptyActivityText: Swift.String = "No activity yet", showsProfile: Swift.Bool = false, showsToolWaitSelection: Swift.Bool = true, toolDisplayNames: [Swift.String : Swift.String] = [:], accentColor: SwiftUICore.Color = Color(red: 132.0 / 255, green: 39.0 / 255, blue: 35.0 / 255), avatar: SwiftUICore.Image? = nil, endsCallOnDisappear: Swift.Bool = true)
 }
+@available(iOS 17, *)
+extension AttentiveVoiceUI.AttentiveAgentView : Swift.Sendable {}
 @available(iOS 17, *)
 extension AttentiveVoiceUI.AttentiveCallerView : Swift.Sendable {}
