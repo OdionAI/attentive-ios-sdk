@@ -19,6 +19,7 @@ import _SwiftConcurrencyShims
 @_Concurrency.MainActor public struct AttentiveAgentView : SwiftUICore.View {
   @_Concurrency.MainActor public init(apiKey: Swift.String, agentID: Swift.String, callerToken: (() async throws -> Swift.String)? = nil)
   @_Concurrency.MainActor public init(apiKey: Swift.String, agentID: Swift.String, customerID: Swift.String?, callerToken: (() async throws -> Swift.String)? = nil)
+  @_Concurrency.MainActor public init(apiKey: Swift.String, agentID: Swift.String, customerID: Swift.String? = nil, startsAutomatically: Swift.Bool, callerToken: (() async throws -> Swift.String)? = nil)
   @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
     get
   }
