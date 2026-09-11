@@ -50,8 +50,9 @@ public struct CallerUIConfiguration {
   public var toolDisplayNames: [Swift.String : Swift.String]
   public var accentColor: SwiftUICore.Color
   public var avatar: SwiftUICore.Image?
+  public var themeKey: Swift.String?
   public var endsCallOnDisappear: Swift.Bool
-  public init(title: Swift.String = "Talk to your agent", agentName: Swift.String = "Agent", profileTitle: Swift.String = "My account", customerIDLabel: Swift.String = "Customer ID", activityTitle: Swift.String = "Activity", emptyActivityText: Swift.String = "No activity yet", showsProfile: Swift.Bool = false, showsToolWaitSelection: Swift.Bool = true, toolDisplayNames: [Swift.String : Swift.String] = [:], accentColor: SwiftUICore.Color = Color(red: 132.0 / 255, green: 39.0 / 255, blue: 35.0 / 255), avatar: SwiftUICore.Image? = nil, endsCallOnDisappear: Swift.Bool = true)
+  public init(title: Swift.String = "Talk to your agent", agentName: Swift.String = "Agent", profileTitle: Swift.String = "My account", customerIDLabel: Swift.String = "Customer ID", activityTitle: Swift.String = "Activity", emptyActivityText: Swift.String = "No activity yet", showsProfile: Swift.Bool = false, showsToolWaitSelection: Swift.Bool = true, toolDisplayNames: [Swift.String : Swift.String] = [:], accentColor: SwiftUICore.Color = Color(red: 132.0 / 255, green: 39.0 / 255, blue: 35.0 / 255), avatar: SwiftUICore.Image? = nil, themeKey: Swift.String? = nil, endsCallOnDisappear: Swift.Bool = true)
 }
 @available(iOS 17, *)
 extension AttentiveVoiceUI.AttentiveAgentView : Swift.Sendable {}

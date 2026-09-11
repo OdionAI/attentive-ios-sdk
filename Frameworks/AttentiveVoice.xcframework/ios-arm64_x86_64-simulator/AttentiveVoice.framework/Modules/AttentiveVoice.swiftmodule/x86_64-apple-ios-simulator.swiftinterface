@@ -246,6 +246,7 @@ public struct AgentConfiguration : Swift.Decodable, Swift.Equatable, Swift.Senda
   public let agentId: Swift.String
   public let agentName: Swift.String
   public let title: Swift.String
+  public let themeKey: Swift.String?
   public let callerRequired: Swift.Bool
   public static func == (a: AttentiveVoice.AgentConfiguration, b: AttentiveVoice.AgentConfiguration) -> Swift.Bool
   public init(from decoder: any Swift.Decoder) throws
