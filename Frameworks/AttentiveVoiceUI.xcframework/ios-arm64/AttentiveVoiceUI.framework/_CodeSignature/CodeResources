@@ -6,19 +6,19 @@
 	<dict>
 		<key>AttentiveVoiceUI_AttentiveVoiceUI.bundle/Assets.car</key>
 		<data>
-		yWvSn3wDtVD1hqeurBa3xWsbUek=
+		9nU0el99CxOHO6aAj2zCh45Rfvw=
 		</data>
 		<key>AttentiveVoiceUI_AttentiveVoiceUI.bundle/Info.plist</key>
 		<data>
-		SEwfG1jnXm3TkKg4H2ghSAP+kAo=
+		c78BDQ7f3yB3ldLKBVhhVh69/gU=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Bkln3mYUKDp1NLsq95dxHXP8WEI=
+		BJtMjmCNGJRIfmyicpk5jnwhiRQ=
 		</data>
 		<key>Modules/AttentiveVoiceUI.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		Z0bvwgLSxsl9Mizd3JG3fj/g+y0=
+		W7GWOIPKYvTaFsDuC5z+/yLLXio=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -27,21 +27,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			e7HulFJNev3wwb6ZIXwnfSG4mEiI6v6G7MuLLt4Ro2A=
+			UFACOFHa3KfF8EYA/1A74YYgh6MFJcqZQyglYT5cuvI=
 			</data>
 		</dict>
 		<key>AttentiveVoiceUI_AttentiveVoiceUI.bundle/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			f+9fkabdJ1JXx+ay5omBu5gWKhjx0tzmWJmxQiXEYwM=
+			cB7HrTiOIQcA4hOz3ezHIdP/eVPGfoYX80CCUb3mWsA=
 			</data>
 		</dict>
 		<key>Modules/AttentiveVoiceUI.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7dFsdnsHtWJUazLe4zk8sSbq5WaVOOomU/FdUVC4ffI=
+			ozyJ8YM1HomnWX0UCtslkusjbaYjWsOFLOTXM7vV1RY=
 			</data>
 		</dict>
 	</dict>
