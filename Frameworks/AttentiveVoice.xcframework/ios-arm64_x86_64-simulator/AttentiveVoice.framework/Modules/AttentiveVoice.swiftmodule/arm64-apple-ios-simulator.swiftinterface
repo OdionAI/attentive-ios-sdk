@@ -137,7 +137,13 @@ public struct AttentiveAudioInputConfiguration : Swift::Codable, Swift::Equatabl
   }
   public var noiseControl: AttentiveVoice::AttentiveAudioInputConfiguration.AttentiveVoice::NoiseControl
   public var responseSensitivity: AttentiveVoice::AttentiveAudioInputConfiguration.AttentiveVoice::ResponseSensitivity
+  public var noiseSuppressionDB: Swift::Int?
+  public var minimumSpeechLevelDBFS: Swift::Double?
+  public var speechConfirmationMilliseconds: Swift::Int?
+  public var interruptionConfirmationMilliseconds: Swift::Int?
   public init(noiseControl: AttentiveVoice::AttentiveAudioInputConfiguration.AttentiveVoice::NoiseControl = .standard, responseSensitivity: AttentiveVoice::AttentiveAudioInputConfiguration.AttentiveVoice::ResponseSensitivity = .balanced)
+  public init(noiseControl: AttentiveVoice::AttentiveAudioInputConfiguration.AttentiveVoice::NoiseControl = .standard, responseSensitivity: AttentiveVoice::AttentiveAudioInputConfiguration.AttentiveVoice::ResponseSensitivity = .balanced, noiseSuppressionDB: Swift::Int? = nil, minimumSpeechLevelDBFS: Swift::Double? = nil, speechConfirmationMilliseconds: Swift::Int? = nil, interruptionConfirmationMilliseconds: Swift::Int? = nil)
+  public func validate() throws
   public static let standard: AttentiveVoice::AttentiveAudioInputConfiguration
   public static let noisyEnvironment: AttentiveVoice::AttentiveAudioInputConfiguration
   public static func == (a: AttentiveVoice::AttentiveAudioInputConfiguration, b: AttentiveVoice::AttentiveAudioInputConfiguration) -> Swift::Bool
@@ -160,15 +166,12 @@ public struct AttentiveAudioInputState : Swift::Equatable, Swift::Sendable {
   public static func == (a: AttentiveVoice::AttentiveAudioInputState, b: AttentiveVoice::AttentiveAudioInputState) -> Swift::Bool
 }
 public enum AttentiveAudioInputError : Swift::Error, Swift::Equatable, Foundation::LocalizedError, Swift::Sendable {
+  case invalidConfiguration(Swift::String)
   case unsupported, timedOut, invalidAcknowledgement, updateFailed, superseded, callerSpeaking, processingUnavailable
   public var errorDescription: Swift::String? {
     get
   }
   public static func == (a: AttentiveVoice::AttentiveAudioInputError, b: AttentiveVoice::AttentiveAudioInputError) -> Swift::Bool
-  public func hash(into hasher: inout Swift::Hasher)
-  public var hashValue: Swift::Int {
-    get
-  }
 }
 public struct CallerProfile : Swift::Codable, Swift::Equatable, Swift::Sendable {
   public var customerId: Swift::String
@@ -408,7 +411,6 @@ extension AttentiveVoice::AttentiveAudioInputConfiguration.AttentiveVoice::Respo
 extension AttentiveVoice::AttentiveAudioInputState.AttentiveVoice::Status : Swift::Equatable {}
 extension AttentiveVoice::AttentiveAudioInputState.AttentiveVoice::Status : Swift::Hashable {}
 extension AttentiveVoice::AttentiveAudioInputState.AttentiveVoice::Status : Swift::RawRepresentable {}
-extension AttentiveVoice::AttentiveAudioInputError : Swift::Hashable {}
 extension AttentiveVoice::ToolWaitSpeechMode : Swift::Equatable {}
 extension AttentiveVoice::ToolWaitSpeechMode : Swift::Hashable {}
 extension AttentiveVoice::ToolWaitSpeechMode : Swift::RawRepresentable {}
