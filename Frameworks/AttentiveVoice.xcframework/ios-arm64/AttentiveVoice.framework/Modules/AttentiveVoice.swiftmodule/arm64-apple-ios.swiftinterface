@@ -3,9 +3,11 @@
 // swift-module-flags: -target arm64-apple-ios16.0 -enable-objc-interop -enable-library-evolution -language-mode 5 -O -enable-experimental-feature DebugDescriptionMacro -module-name AttentiveVoice -package-name source
 // swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.4
 import AVFoundation
+import AuthenticationServices
 import Combine
 import Foundation
 import Swift
+import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
@@ -87,13 +89,15 @@ import _SwiftConcurrencyShims
     get
   }
   @_Concurrency::MainActor final public let agentAudioLevel: AttentiveVoice::AgentAudioLevel
+  @_Concurrency::MainActor final public let passkeyConfiguration: AttentiveVoice::AttentivePasskeyConfiguration
+  @_Concurrency::MainActor final public var passkeyPresentationAnchor: (() -> UIKit::UIWindow?)?
   @_Concurrency::MainActor final public var onEvent: ((AttentiveVoice::CallEvent) -> Swift::Void)?
-  @_Concurrency::MainActor convenience public init(apiKey: Swift::String, agentID: Swift::String, audioInput: AttentiveVoice::AttentiveAudioInputConfiguration = .standard)
-  @_Concurrency::MainActor convenience public init(apiKey: Swift::String, agentID: Swift::String, customerID: Swift::String?, audioInput: AttentiveVoice::AttentiveAudioInputConfiguration = .standard)
+  @_Concurrency::MainActor convenience public init(apiKey: Swift::String, agentID: Swift::String, audioInput: AttentiveVoice::AttentiveAudioInputConfiguration = .standard, passkeys: AttentiveVoice::AttentivePasskeyConfiguration = .disabled)
+  @_Concurrency::MainActor convenience public init(apiKey: Swift::String, agentID: Swift::String, customerID: Swift::String?, audioInput: AttentiveVoice::AttentiveAudioInputConfiguration = .standard, passkeys: AttentiveVoice::AttentivePasskeyConfiguration = .disabled)
   @_Concurrency::MainActor final public func loadConfiguration() async throws
   @_Concurrency::MainActor final public func start(callerToken: Swift::String? = nil, microphoneEnabled: Swift::Bool = true) async throws
-  @_Concurrency::MainActor convenience public init(endpoint: Foundation::URL, allowsInsecureDevelopmentConnections: Swift::Bool = false, audioInput: AttentiveVoice::AttentiveAudioInputConfiguration = .standard) throws
-  @_Concurrency::MainActor convenience public init(credentialProvider: any AttentiveVoice::CallCredentialProvider, allowsInsecureDevelopmentConnections: Swift::Bool = false, audioInput: AttentiveVoice::AttentiveAudioInputConfiguration = .standard)
+  @_Concurrency::MainActor convenience public init(endpoint: Foundation::URL, allowsInsecureDevelopmentConnections: Swift::Bool = false, audioInput: AttentiveVoice::AttentiveAudioInputConfiguration = .standard, passkeys: AttentiveVoice::AttentivePasskeyConfiguration = .disabled) throws
+  @_Concurrency::MainActor convenience public init(credentialProvider: any AttentiveVoice::CallCredentialProvider, allowsInsecureDevelopmentConnections: Swift::Bool = false, audioInput: AttentiveVoice::AttentiveAudioInputConfiguration = .standard, passkeys: AttentiveVoice::AttentivePasskeyConfiguration = .disabled)
   @_Concurrency::MainActor final public func start(_ request: AttentiveVoice::CallRequest, microphoneEnabled: Swift::Bool = true) async throws
   @_Concurrency::MainActor final public func end() async
   @_Concurrency::MainActor final public func setMicrophone(enabled: Swift::Bool) async throws
@@ -326,6 +330,24 @@ public enum CallEvent : Swift::Equatable, Swift::Sendable {
   @_Concurrency::MainActor final public func record(progress: @escaping @_Concurrency::MainActor (Swift::Int) -> Swift::Void) async throws -> Foundation::Data
   @_Concurrency::MainActor final public func cancel()
   @objc deinit
+}
+public struct AttentivePasskeyConfiguration : Swift::Equatable, Swift::Sendable, Swift::CustomStringConvertible, Swift::CustomDebugStringConvertible, Swift::CustomReflectable {
+  public let relyingPartyIdentifiers: [Swift::String]
+  public let deviceIdentifier: Swift::String?
+  public let ceremonyTimeoutSeconds: Foundation::TimeInterval
+  public let verificationTimeoutSeconds: Foundation::TimeInterval
+  public static let disabled: AttentiveVoice::AttentivePasskeyConfiguration
+  public init(relyingPartyIdentifiers: [Swift::String], deviceIdentifier: Swift::String? = nil, ceremonyTimeoutSeconds: Foundation::TimeInterval = 120, verificationTimeoutSeconds: Foundation::TimeInterval = 30)
+  public var description: Swift::String {
+    get
+  }
+  public var debugDescription: Swift::String {
+    get
+  }
+  public var customMirror: Swift::Mirror {
+    get
+  }
+  public static func == (a: AttentiveVoice::AttentivePasskeyConfiguration, b: AttentiveVoice::AttentivePasskeyConfiguration) -> Swift::Bool
 }
 public struct AgentConfiguration : Swift::Decodable, Swift::Equatable, Swift::Sendable {
   public let agentId: Swift::String
