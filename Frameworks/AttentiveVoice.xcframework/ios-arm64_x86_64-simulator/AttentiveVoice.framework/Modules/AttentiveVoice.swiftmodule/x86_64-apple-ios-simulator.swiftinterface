@@ -11,6 +11,7 @@ import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+import os
 @_hasMissingDesignatedInitializers @_Concurrency::MainActor final public class AgentAudioLevel : Combine::ObservableObject {
   @Combine::Published<Swift::Float> @_projectedValueProperty($energy) @_Concurrency::MainActor final public var energy: Swift::Float {
     get
@@ -336,8 +337,9 @@ public struct AttentivePasskeyConfiguration : Swift::Equatable, Swift::Sendable,
   public let deviceIdentifier: Swift::String?
   public let ceremonyTimeoutSeconds: Foundation::TimeInterval
   public let verificationTimeoutSeconds: Foundation::TimeInterval
+  public let diagnosticsEnabled: Swift::Bool
   public static let disabled: AttentiveVoice::AttentivePasskeyConfiguration
-  public init(relyingPartyIdentifiers: [Swift::String], deviceIdentifier: Swift::String? = nil, ceremonyTimeoutSeconds: Foundation::TimeInterval = 120, verificationTimeoutSeconds: Foundation::TimeInterval = 30)
+  public init(relyingPartyIdentifiers: [Swift::String], deviceIdentifier: Swift::String? = nil, ceremonyTimeoutSeconds: Foundation::TimeInterval = 120, verificationTimeoutSeconds: Foundation::TimeInterval = 30, diagnosticsEnabled: Swift::Bool = false)
   public var description: Swift::String {
     get
   }
