@@ -6,7 +6,7 @@
 	<dict>
 		<key>AttentiveVoice_AttentiveRTC.bundle/Info.plist</key>
 		<data>
-		LcRCsQ9UAWQ25xbOS0qi7oT2rOc=
+		ITP2jK34dcNeNNx+in4NnQxlekE=
 		</data>
 		<key>AttentiveVoice_AttentiveRTC.bundle/PrivacyInfo.xcprivacy</key>
 		<data>
@@ -42,15 +42,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		FK2DJQTPcBvcB8iSdyy+n01nStA=
+		qUeMWl/fmvaNkiSf5EIuyUihzIU=
 		</data>
 		<key>Modules/AttentiveVoice.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		ZFyOPewtlmWCdZ8cJ0r7ego4yIM=
+		cnmnjx1Ag2+wh3z1bGPuiznfIC8=
 		</data>
 		<key>SwiftProtobuf_SwiftProtobuf.bundle/Info.plist</key>
 		<data>
-		qf4mRlBcTmYGtnNxkh2OyluzEw8=
+		2CeCN0d0UHKcrnuDDFZDbn6dFoE=
 		</data>
 		<key>SwiftProtobuf_SwiftProtobuf.bundle/PrivacyInfo.xcprivacy</key>
 		<data>
@@ -63,7 +63,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			nSNBIYtcPZ67eDl2+LWdMW4FOBNYGQZo/xYTX86X6Rc=
+			xHE7ek6+vGYM8nlAvjIki2qwxzAVCrpUEC92zHBN6YE=
 			</data>
 		</dict>
 		<key>AttentiveVoice_AttentiveRTC.bundle/PrivacyInfo.xcprivacy</key>
@@ -126,14 +126,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Kj+UDHCtPLli7ngmGizaEpsZNFXI4y4/4uAKbEMb60U=
+			RMG09WkcYogG+1YLG+IQ6HhAWlKuew7it1n8F35d3AE=
 			</data>
 		</dict>
 		<key>SwiftProtobuf_SwiftProtobuf.bundle/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3geYrcshabJ7zANaF1e+tm/xYqWotEQqpwmZ3TGcJ3U=
+			PeXZHTRkiGewkvAY5KeStZwIXnON6jA7zqiE2SkTCFE=
 			</data>
 		</dict>
 		<key>SwiftProtobuf_SwiftProtobuf.bundle/PrivacyInfo.xcprivacy</key>
