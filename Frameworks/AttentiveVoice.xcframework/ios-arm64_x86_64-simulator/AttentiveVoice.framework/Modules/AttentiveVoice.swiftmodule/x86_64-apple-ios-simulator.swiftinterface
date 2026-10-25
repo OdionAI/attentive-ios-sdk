@@ -93,8 +93,8 @@ import os
   @_Concurrency::MainActor final public let passkeyConfiguration: AttentiveVoice::AttentivePasskeyConfiguration
   @_Concurrency::MainActor final public var passkeyPresentationAnchor: (() -> UIKit::UIWindow?)?
   @_Concurrency::MainActor final public var onEvent: ((AttentiveVoice::CallEvent) -> Swift::Void)?
-  @_Concurrency::MainActor convenience public init(apiKey: Swift::String, agentID: Swift::String, audioInput: AttentiveVoice::AttentiveAudioInputConfiguration = .standard, passkeys: AttentiveVoice::AttentivePasskeyConfiguration = .disabled)
-  @_Concurrency::MainActor convenience public init(apiKey: Swift::String, agentID: Swift::String, customerID: Swift::String?, audioInput: AttentiveVoice::AttentiveAudioInputConfiguration = .standard, passkeys: AttentiveVoice::AttentivePasskeyConfiguration = .disabled)
+  @_Concurrency::MainActor convenience public init(apiKey: Swift::String, agentID: Swift::String, audioInput: AttentiveVoice::AttentiveAudioInputConfiguration = .standard, passkeys: AttentiveVoice::AttentivePasskeyConfiguration = .disabled, voiceLanguage: AttentiveVoice::VoiceAccent? = nil, voiceGender: AttentiveVoice::VoiceGender? = nil)
+  @_Concurrency::MainActor convenience public init(apiKey: Swift::String, agentID: Swift::String, customerID: Swift::String?, audioInput: AttentiveVoice::AttentiveAudioInputConfiguration = .standard, passkeys: AttentiveVoice::AttentivePasskeyConfiguration = .disabled, voiceLanguage: AttentiveVoice::VoiceAccent? = nil, voiceGender: AttentiveVoice::VoiceGender? = nil)
   @_Concurrency::MainActor final public func loadConfiguration() async throws
   @_Concurrency::MainActor final public func start(callerToken: Swift::String? = nil, microphoneEnabled: Swift::Bool = true) async throws
   @_Concurrency::MainActor convenience public init(endpoint: Foundation::URL, allowsInsecureDevelopmentConnections: Swift::Bool = false, audioInput: AttentiveVoice::AttentiveAudioInputConfiguration = .standard, passkeys: AttentiveVoice::AttentivePasskeyConfiguration = .disabled) throws
@@ -196,6 +196,32 @@ public enum ToolWaitSpeechMode : Swift::String, Swift::Codable, Swift::Sendable 
     get
   }
 }
+public enum VoiceAccent : Swift::String, Swift::Codable, Swift::Sendable, Swift::CaseIterable {
+  case enUS
+  case enNG
+  public init?(rawValue: Swift::String)
+  public typealias AllCases = [AttentiveVoice::VoiceAccent]
+  public typealias RawValue = Swift::String
+  nonisolated public static var allCases: [AttentiveVoice::VoiceAccent] {
+    get
+  }
+  public var rawValue: Swift::String {
+    get
+  }
+}
+public enum VoiceGender : Swift::String, Swift::Codable, Swift::Sendable, Swift::CaseIterable {
+  case male
+  case female
+  public init?(rawValue: Swift::String)
+  public typealias AllCases = [AttentiveVoice::VoiceGender]
+  public typealias RawValue = Swift::String
+  nonisolated public static var allCases: [AttentiveVoice::VoiceGender] {
+    get
+  }
+  public var rawValue: Swift::String {
+    get
+  }
+}
 public struct CallRequest : Swift::Codable, Swift::Equatable, Swift::Sendable {
   public var businessSlug: Swift::String
   public var agentPublicId: Swift::String
@@ -203,7 +229,9 @@ public struct CallRequest : Swift::Codable, Swift::Equatable, Swift::Sendable {
   public var language: Swift::String
   public var wemaContext: AttentiveVoice::CallerProfile?
   public var toolWaitSpeechMode: AttentiveVoice::ToolWaitSpeechMode?
-  public init(businessSlug: Swift::String, agentPublicId: Swift::String, endUserContact: Swift::String, language: Swift::String = "en", profile: AttentiveVoice::CallerProfile? = nil, toolWaitSpeechMode: AttentiveVoice::ToolWaitSpeechMode? = nil)
+  public var voiceLanguage: AttentiveVoice::VoiceAccent?
+  public var voiceGender: AttentiveVoice::VoiceGender?
+  public init(businessSlug: Swift::String, agentPublicId: Swift::String, endUserContact: Swift::String, language: Swift::String = "en", profile: AttentiveVoice::CallerProfile? = nil, toolWaitSpeechMode: AttentiveVoice::ToolWaitSpeechMode? = nil, voiceLanguage: AttentiveVoice::VoiceAccent? = nil, voiceGender: AttentiveVoice::VoiceGender? = nil)
   public static func == (a: AttentiveVoice::CallRequest, b: AttentiveVoice::CallRequest) -> Swift::Bool
   public func encode(to encoder: any Swift::Encoder) throws
   public init(from decoder: any Swift::Decoder) throws
@@ -438,6 +466,12 @@ extension AttentiveVoice::AttentiveAudioInputState.AttentiveVoice::Status : Swif
 extension AttentiveVoice::ToolWaitSpeechMode : Swift::Equatable {}
 extension AttentiveVoice::ToolWaitSpeechMode : Swift::Hashable {}
 extension AttentiveVoice::ToolWaitSpeechMode : Swift::RawRepresentable {}
+extension AttentiveVoice::VoiceAccent : Swift::Equatable {}
+extension AttentiveVoice::VoiceAccent : Swift::Hashable {}
+extension AttentiveVoice::VoiceAccent : Swift::RawRepresentable {}
+extension AttentiveVoice::VoiceGender : Swift::Equatable {}
+extension AttentiveVoice::VoiceGender : Swift::Hashable {}
+extension AttentiveVoice::VoiceGender : Swift::RawRepresentable {}
 extension AttentiveVoice::CallState : Swift::Equatable {}
 extension AttentiveVoice::CallState : Swift::Hashable {}
 extension AttentiveVoice::CallState : Swift::RawRepresentable {}

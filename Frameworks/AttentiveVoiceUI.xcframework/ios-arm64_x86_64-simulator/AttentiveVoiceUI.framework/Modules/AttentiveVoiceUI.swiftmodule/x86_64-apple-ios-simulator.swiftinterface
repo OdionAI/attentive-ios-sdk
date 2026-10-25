@@ -17,9 +17,9 @@ import _StringProcessing
 import _SwiftConcurrencyShims
 @available(iOS 17, *)
 @_Concurrency::MainActor public struct AttentiveAgentView : SwiftUICore::View {
-  @_Concurrency::MainActor public init(apiKey: Swift::String, agentID: Swift::String, audioInput: AttentiveVoice::AttentiveAudioInputConfiguration = .standard, passkeys: AttentiveVoice::AttentivePasskeyConfiguration = .disabled, callerToken: (() async throws -> Swift::String)? = nil)
-  @_Concurrency::MainActor public init(apiKey: Swift::String, agentID: Swift::String, customerID: Swift::String?, audioInput: AttentiveVoice::AttentiveAudioInputConfiguration = .standard, passkeys: AttentiveVoice::AttentivePasskeyConfiguration = .disabled, callerToken: (() async throws -> Swift::String)? = nil)
-  @_Concurrency::MainActor public init(apiKey: Swift::String, agentID: Swift::String, customerID: Swift::String? = nil, startsAutomatically: Swift::Bool, audioInput: AttentiveVoice::AttentiveAudioInputConfiguration = .standard, passkeys: AttentiveVoice::AttentivePasskeyConfiguration = .disabled, callerToken: (() async throws -> Swift::String)? = nil)
+  @_Concurrency::MainActor public init(apiKey: Swift::String, agentID: Swift::String, audioInput: AttentiveVoice::AttentiveAudioInputConfiguration = .standard, passkeys: AttentiveVoice::AttentivePasskeyConfiguration = .disabled, voiceLanguage: AttentiveVoice::VoiceAccent? = nil, voiceGender: AttentiveVoice::VoiceGender? = nil, callerToken: (() async throws -> Swift::String)? = nil)
+  @_Concurrency::MainActor public init(apiKey: Swift::String, agentID: Swift::String, customerID: Swift::String?, audioInput: AttentiveVoice::AttentiveAudioInputConfiguration = .standard, passkeys: AttentiveVoice::AttentivePasskeyConfiguration = .disabled, voiceLanguage: AttentiveVoice::VoiceAccent? = nil, voiceGender: AttentiveVoice::VoiceGender? = nil, callerToken: (() async throws -> Swift::String)? = nil)
+  @_Concurrency::MainActor public init(apiKey: Swift::String, agentID: Swift::String, customerID: Swift::String? = nil, startsAutomatically: Swift::Bool, audioInput: AttentiveVoice::AttentiveAudioInputConfiguration = .standard, passkeys: AttentiveVoice::AttentivePasskeyConfiguration = .disabled, voiceLanguage: AttentiveVoice::VoiceAccent? = nil, voiceGender: AttentiveVoice::VoiceGender? = nil, callerToken: (() async throws -> Swift::String)? = nil)
   @_Concurrency::MainActor @preconcurrency public var body: some SwiftUICore::View {
     get
   }
