@@ -10,15 +10,23 @@
 		</data>
 		<key>AttentiveVoiceUI_AttentiveVoiceUI.bundle/Info.plist</key>
 		<data>
-		GsAeTDLX/xq84WWSxj+GnDaRPow=
+		8S3nMIX2hv1IDNY8KvwC55keJnM=
+		</data>
+		<key>AttentiveVoiceUI_AttentiveVoiceUI.bundle/blue-circle.js</key>
+		<data>
+		VPcEBLb/PVrPByyDGf/sHyTBK20=
+		</data>
+		<key>AttentiveVoiceUI_AttentiveVoiceUI.bundle/fallback.png</key>
+		<data>
+		LI4/jW7Hjr5jQ+jURQ05RwZH0ww=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		pMp2Atf2f7QS8Fb1yZG2MSxmy8c=
+		+GXZ2YXN/syRxFT2F/m3pn75rbM=
 		</data>
 		<key>Modules/AttentiveVoiceUI.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		2XkLKiMv8FUIKkuhLa2aij+iPLM=
+		CRHM5i9Nk7zArf4fem0+U7bDVzc=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -34,14 +42,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			2Sf7LcQ3EgG5ewaK/rwhuYOuRVEsbijC9cneTBNwesA=
+			LJ5tGkvc4+CwRJCCqu2BSc05hathmLwX2GUtcTTGAf4=
+			</data>
+		</dict>
+		<key>AttentiveVoiceUI_AttentiveVoiceUI.bundle/blue-circle.js</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			MksMdUa1LSJv2Iaxnk5bmUWbMQ3+sU/lzOUr9ygRmTM=
+			</data>
+		</dict>
+		<key>AttentiveVoiceUI_AttentiveVoiceUI.bundle/fallback.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			uOlLrc+irBWsmwkC+ymTD5zU0HLLCotO6c9/LJVNenU=
 			</data>
 		</dict>
 		<key>Modules/AttentiveVoiceUI.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PNytOO91YVxNt4dFoP2E2ABSIOddlDafg2O1vnaV3HQ=
+			97uS+nDZaKVkWjP2dC5cg1pgchrpPRW0zgcT7hwrrKI=
 			</data>
 		</dict>
 	</dict>
