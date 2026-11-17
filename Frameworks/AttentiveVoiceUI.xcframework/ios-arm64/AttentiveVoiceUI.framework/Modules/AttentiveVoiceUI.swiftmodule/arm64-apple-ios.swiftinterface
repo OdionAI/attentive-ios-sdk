@@ -12,9 +12,11 @@ import Foundation/*.URL*/
 import Swift
 import SwiftUI
 import UIKit
+import WebKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+import _WebKit_SwiftUI
 @available(iOS 17, *)
 @_Concurrency::MainActor public struct AttentiveAgentView : SwiftUICore::View {
   @_Concurrency::MainActor public init(apiKey: Swift::String, agentID: Swift::String, audioInput: AttentiveVoice::AttentiveAudioInputConfiguration = .standard, passkeys: AttentiveVoice::AttentivePasskeyConfiguration = .disabled, voiceLanguage: AttentiveVoice::VoiceAccent? = nil, voiceGender: AttentiveVoice::VoiceGender? = nil, callerToken: (() async throws -> Swift::String)? = nil)

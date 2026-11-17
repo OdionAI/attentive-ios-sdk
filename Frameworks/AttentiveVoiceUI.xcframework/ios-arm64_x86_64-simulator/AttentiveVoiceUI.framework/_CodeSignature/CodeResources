@@ -10,19 +10,27 @@
 		</data>
 		<key>AttentiveVoiceUI_AttentiveVoiceUI.bundle/Info.plist</key>
 		<data>
-		pmuSvRbg8HNUZo9H+cOomJKfiYM=
+		IRAqyM/4tahdtRCz6FOlPU5qapc=
+		</data>
+		<key>AttentiveVoiceUI_AttentiveVoiceUI.bundle/blue-circle.js</key>
+		<data>
+		VPcEBLb/PVrPByyDGf/sHyTBK20=
+		</data>
+		<key>AttentiveVoiceUI_AttentiveVoiceUI.bundle/fallback.png</key>
+		<data>
+		LI4/jW7Hjr5jQ+jURQ05RwZH0ww=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		vHjQefPBT8wgjs4sOvq7RPFRGe0=
+		PkO9Jblk/EJ0ls1MXKWk0JK9YRE=
 		</data>
 		<key>Modules/AttentiveVoiceUI.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		KVS0aLJbDOjth7LplFbG/BrlSsM=
+		ww4lVSoHEf2pcVV4z0mFyqr55zw=
 		</data>
 		<key>Modules/AttentiveVoiceUI.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		q7vtXOUO0prTlbLdqZA66C4Cdtg=
+		heH3k44mIshJyNM2E080hyHUokY=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -38,21 +46,35 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			j6wYwlq016Cwo9ymVQ7AjSIk15Zj6kVVSuwfhyGzOts=
+			AoSj5cPVJ8IKUMcdlNrkgH72MBkP3/XBnWNhMnlwojQ=
+			</data>
+		</dict>
+		<key>AttentiveVoiceUI_AttentiveVoiceUI.bundle/blue-circle.js</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			MksMdUa1LSJv2Iaxnk5bmUWbMQ3+sU/lzOUr9ygRmTM=
+			</data>
+		</dict>
+		<key>AttentiveVoiceUI_AttentiveVoiceUI.bundle/fallback.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			uOlLrc+irBWsmwkC+ymTD5zU0HLLCotO6c9/LJVNenU=
 			</data>
 		</dict>
 		<key>Modules/AttentiveVoiceUI.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8Ez0zbKHIC3O7vdcz3FDuE5mPdoPIUtu5q+WgrdvKAE=
+			7QkeURegJRO4d5dl188CoF3uGKJJyBUGVz791aMVpoU=
 			</data>
 		</dict>
 		<key>Modules/AttentiveVoiceUI.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RCo2MGgkpIZguY1AfASqCooLiWsBkyH5Y0tg4vZIo84=
+			x5G+5QEXWUOh6z+gWya3mztR3V+w3QK8xjGmIN32Tmg=
 			</data>
 		</dict>
 	</dict>
