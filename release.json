@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "version": "0.1.8",
+  "version": "0.1.9",
   "status": "stable",
   "packageURL": "https://github.com/OdionAI/attentive-ios-sdk.git",
-  "releaseURL": "https://github.com/OdionAI/attentive-ios-sdk/releases/tag/0.1.8",
+  "releaseURL": "https://github.com/OdionAI/attentive-ios-sdk/releases/tag/0.1.9",
   "minimumIOS": "16.0",
   "uiMinimumIOS": "17.0",
   "swiftToolsVersion": "6.1",
@@ -12,8 +12,8 @@
     "swift": "Apple Swift version 6.4.2 (swiftlang-6.4.2.1.9 clang-2100.4.1.1)\nTarget: arm64-apple-macosx27.3.0"
   },
   "archive": {
-    "name": "attentive-ios-sdk-0.1.8.zip",
-    "url": "https://github.com/OdionAI/attentive-ios-sdk/releases/download/0.1.8/attentive-ios-sdk-0.1.8.zip",
-    "sha256": "cc4ca9aba483eabd0868cd48a95110e77565fff2d319c1cf2544472e13ba28f0"
+    "name": "attentive-ios-sdk-0.1.9.zip",
+    "url": "https://github.com/OdionAI/attentive-ios-sdk/releases/download/0.1.9/attentive-ios-sdk-0.1.9.zip",
+    "sha256": "0c0b215223e55a20b7baba753fb960ff90df730c36b85c193683e965fbd8b130"
   }
 }
