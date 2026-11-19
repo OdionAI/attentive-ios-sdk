@@ -17,11 +17,22 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 import _WebKit_SwiftUI
+public enum AttentiveAppearance : Swift::Sendable {
+  case system
+  case light
+  case dark
+  public static func == (a: AttentiveVoiceUI::AttentiveAppearance, b: AttentiveVoiceUI::AttentiveAppearance) -> Swift::Bool
+  public func hash(into hasher: inout Swift::Hasher)
+  public var hashValue: Swift::Int {
+    get
+  }
+}
 @available(iOS 17, *)
 @_Concurrency::MainActor public struct AttentiveAgentView : SwiftUICore::View {
   @_Concurrency::MainActor public init(apiKey: Swift::String, agentID: Swift::String, phoneNumber: Swift::String? = nil, audioInput: AttentiveVoice::AttentiveAudioInputConfiguration = .standard, passkeys: AttentiveVoice::AttentivePasskeyConfiguration = .disabled, voiceLanguage: AttentiveVoice::VoiceAccent? = nil, voiceGender: AttentiveVoice::VoiceGender? = nil, callerToken: (() async throws -> Swift::String)? = nil)
   @_Concurrency::MainActor public init(apiKey: Swift::String, agentID: Swift::String, customerID: Swift::String?, phoneNumber: Swift::String? = nil, audioInput: AttentiveVoice::AttentiveAudioInputConfiguration = .standard, passkeys: AttentiveVoice::AttentivePasskeyConfiguration = .disabled, voiceLanguage: AttentiveVoice::VoiceAccent? = nil, voiceGender: AttentiveVoice::VoiceGender? = nil, callerToken: (() async throws -> Swift::String)? = nil)
   @_Concurrency::MainActor public init(apiKey: Swift::String, agentID: Swift::String, customerID: Swift::String? = nil, phoneNumber: Swift::String? = nil, startsAutomatically: Swift::Bool, audioInput: AttentiveVoice::AttentiveAudioInputConfiguration = .standard, passkeys: AttentiveVoice::AttentivePasskeyConfiguration = .disabled, voiceLanguage: AttentiveVoice::VoiceAccent? = nil, voiceGender: AttentiveVoice::VoiceGender? = nil, callerToken: (() async throws -> Swift::String)? = nil)
+  @_Concurrency::MainActor public init(apiKey: Swift::String, agentID: Swift::String, customerID: Swift::String? = nil, phoneNumber: Swift::String? = nil, startsAutomatically: Swift::Bool = true, appearance: AttentiveVoiceUI::AttentiveAppearance, audioInput: AttentiveVoice::AttentiveAudioInputConfiguration = .standard, passkeys: AttentiveVoice::AttentivePasskeyConfiguration = .disabled, voiceLanguage: AttentiveVoice::VoiceAccent? = nil, voiceGender: AttentiveVoice::VoiceGender? = nil, callerToken: (() async throws -> Swift::String)? = nil)
   @_Concurrency::MainActor @preconcurrency public var body: some SwiftUICore::View {
     get
   }
@@ -58,6 +69,8 @@ public struct CallerUIConfiguration {
   public var endsCallOnDisappear: Swift::Bool
   public init(title: Swift::String = "Talk to your agent", agentName: Swift::String = "Agent", profileTitle: Swift::String = "My account", customerIDLabel: Swift::String = "Customer ID", activityTitle: Swift::String = "Activity", emptyActivityText: Swift::String = "No activity yet", showsProfile: Swift::Bool = false, showsToolWaitSelection: Swift::Bool = true, toolDisplayNames: [Swift::String : Swift::String] = [:], accentColor: SwiftUICore::Color = Color(red: 132.0 / 255, green: 39.0 / 255, blue: 35.0 / 255), avatar: SwiftUICore::Image? = nil, themeKey: Swift::String? = nil, endsCallOnDisappear: Swift::Bool = true, showsAudioInputSettings: Swift::Bool = false)
 }
+extension AttentiveVoiceUI::AttentiveAppearance : Swift::Equatable {}
+extension AttentiveVoiceUI::AttentiveAppearance : Swift::Hashable {}
 @available(iOS 17, *)
 extension AttentiveVoiceUI::AttentiveAgentView : Swift::Sendable {}
 @available(iOS 17, *)
