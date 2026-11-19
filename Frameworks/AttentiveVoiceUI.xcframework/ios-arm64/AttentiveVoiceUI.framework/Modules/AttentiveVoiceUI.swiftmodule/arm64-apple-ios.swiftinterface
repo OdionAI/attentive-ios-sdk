@@ -30,7 +30,7 @@ import _WebKit_SwiftUI
 }
 @available(iOS 17, *)
 @_Concurrency::MainActor public struct AttentiveCallerView : SwiftUICore::View {
-  @_Concurrency::MainActor public init(call: AttentiveVoice::AttentiveCall, request: SwiftUICore::Binding<AttentiveVoice::CallRequest>, configuration: AttentiveVoiceUI::CallerUIConfiguration = .init(), enrollment: AttentiveVoice::VoiceEnrollment? = nil, microphoneOnStart: Swift::Bool = true, onSettings: (() -> Swift::Void)? = nil)
+  @_Concurrency::MainActor public init(call: AttentiveVoice::AttentiveCall, request: SwiftUICore::Binding<AttentiveVoice::CallRequest>, configuration: AttentiveVoiceUI::CallerUIConfiguration = .init(), enrollment: AttentiveVoice::VoiceEnrollment? = nil, microphoneOnStart: Swift::Bool = true, onSettings: (() -> Swift::Void)? = nil, showsContactForm: Swift::Bool = false)
   @_Concurrency::MainActor @preconcurrency public var body: some SwiftUICore::View {
     get
   }
